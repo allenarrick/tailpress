@@ -3,6 +3,13 @@
 // Theme customizer settings
 require get_template_directory() . '/inc/settings.php';
 
+// Custom Post Types
+require get_template_directory() . '/inc/cpt.php';
+
+// Advanced Custom Fields
+require get_template_directory() . '/inc/acf.php';
+
+
 /**
  * Theme setup.
  */
@@ -31,6 +38,9 @@ function tailpress_setup() {
 
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'wp-block-styles' );
+
+	add_theme_support( 'widgets' );
+	add_theme_support( 'widgets-block-editor');
 
 	add_theme_support( 'editor-styles' );
 	add_editor_style( 'css/editor-style.css' );

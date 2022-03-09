@@ -6,6 +6,18 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="<?= get_theme_file_uri() . '/fontawesome/css/all.min.css';?>">
+
+	<!-- Alpine Plugins -->
+	<script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://unpkg.com/@alpinejs/focus@3.9.0/dist/cdn.min.js"></script>
+
+	<!-- Alpine Core -->
+	<script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+
 	<?php wp_head(); ?>
 </head>
 
@@ -18,26 +30,12 @@
 	<?php do_action( 'tailpress_header' ); ?>
 
 	<header>
-
+	<?php get_template_part( 'template-parts/announcement', 'announcement'); ?>
 		<div class="mx-auto container">
 			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
 				<div class="flex justify-between items-center">
-					<div>
-						<?php if ( has_custom_logo() ) { ?>
-                            <?php the_custom_logo(); ?>
-						<?php } else { ?>
-							<div class="text-lg uppercase">
-								<a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
-									<?php echo get_bloginfo( 'name' ); ?>
-								</a>
-							</div>
-
-							<p class="text-sm font-light text-gray-600">
-								<?php echo get_bloginfo( 'description' ); ?>
-							</p>
-
-						<?php } ?>
-					</div>
+					
+				<?php get_template_part( 'template-parts/logo', 'logo'); ?>
 
 					<div class="lg:hidden">
 						<a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
