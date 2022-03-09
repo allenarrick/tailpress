@@ -1,5 +1,8 @@
 <?php
 
+// Theme customizer settings
+require get_template_directory() . '/inc/settings.php';
+
 /**
  * Theme setup.
  */
