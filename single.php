@@ -8,7 +8,10 @@
 		while ( have_posts() ) :
 			the_post();
 			?>
-
+			<?php if ( is_user_logged_in() ) : ?>
+				<h2 class="px-2 py-1 bg-gray-300 text-sm rounded-sm inline">single.php</h2>
+			<?php endif; ?>
+			
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
 			<?php

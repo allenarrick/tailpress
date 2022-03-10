@@ -3,3 +3,37 @@
 @import "tailwindcss/utilities";
 
 @import "custom.css";
+
+@layer components {
+  [x-cloak] {
+    display: none !important;
+  }
+  .search-field {
+    background-color: #f0f4f5;
+    height: 61px;
+    padding: 20px;
+    border-radius: 5px;
+    @apply outline-primary;
+  }
+
+  .search-field::placeholder {
+    margin-left: 10px;
+    @apply text-primary;
+  }
+
+  .search-submit {
+    border-radius: 5px;
+    height: 61px;
+    @apply bg-primary text-white p-4 hover:opacity-90;
+  }
+
+  #search-modal .search-field {
+    width: 80%;
+    @apply shadow-lg;
+  }
+
+  #search-modal .search-submit {
+    background-color: #eea38c;
+    @apply text-white p-4 hover:opacity-90 shadow-lg cursor-pointer;
+  }
+}

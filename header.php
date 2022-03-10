@@ -30,15 +30,17 @@
 	<?php do_action( 'tailpress_header' ); ?>
 
 	<header>
+
 	<?php get_template_part( 'template-parts/announcement', 'announcement'); ?>
-		<div class="mx-auto container">
+
+		<nav class="mx-auto container" x-data="{open : false}">
 			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
 				<div class="flex justify-between items-center">
 					
 				<?php get_template_part( 'template-parts/logo', 'logo'); ?>
 
 					<div class="lg:hidden">
-						<a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
+						<a href="#" aria-label="Toggle navigation" id="mobile-menu-toggle" @click.prevent="open = true">
 							<svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1"
 								 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 								<g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
@@ -51,22 +53,16 @@
 						</a>
 					</div>
 				</div>
-
-				<?php
-				wp_nav_menu(
-					array(
-						'container_id'    => 'primary-menu',
-						'container_class' => 'hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
-						'menu_class'      => 'lg:flex lg:-mx-4',
-						'theme_location'  => 'primary',
-						'li_class'        => 'lg:mx-4',
-						'fallback_cb'     => false,
-					)
-				);
-				?>
+				
+				<?php get_template_part('template-parts/mobile-menu', 'Mobile Menu')?>
+				
+				<?php get_template_part('template-parts/primary-nav', 'Nav')?>
+				
 			</div>
-		</div>
+			</nav>
+
 	</header>
+
 
 	<div id="content" class="site-content flex-grow">
 

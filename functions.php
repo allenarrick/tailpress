@@ -19,6 +19,7 @@ function tailpress_setup() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu', 'tailpress' ),
+			'mobile' => __( 'Mobile Menu', 'tailpress' ),
 		)
 	);
 
