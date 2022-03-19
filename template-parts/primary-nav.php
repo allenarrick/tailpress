@@ -9,7 +9,7 @@
 
 ?>
 
-<nav id="primary-menu" class="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block"
+<nav id="primary-menu" class="hidden p-4 mt-4 bg-gray-100 lg:mt-0 lg:p-0 lg:bg-transparent lg:block"
     >
 <ul class="main-nav lg:flex lg:-mx-4">
     <?php
@@ -34,7 +34,7 @@
 
     <li x-data="{dropdown : false}" @mouseleave="dropdown = false" class="relative lg:mx-4 <?php if($active): ?> text-primary font-bold <? endif; ?>"
         >
-        <a href="<?php echo $link; ?>" class="title" @mouseover="dropdown = true" >
+        <a href="<?php echo $link; ?>" class="title hover:text-primary" @mouseover="dropdown = true" >
             <?php echo $title; ?>
         </a>
     <?php endif; ?>
@@ -43,11 +43,11 @@
 
             <?php if ( !$submenu ): $submenu = true; ?>
             <div class="absolute py-4" x-show="dropdown" x-cloak>
-                <ul class="sub-menu w-36 bg-gray-500 " >
+                <ul class="bg-gray-500 sub-menu w-36 " >
                 <?php endif; ?>
 
                     <li class="item menu-item menu-item-type-post_type lg:mx-4">
-                        <a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+                        <a href="<?php echo $link; ?>" class="title "><?php echo $title; ?></a>
                     </li>
 
                 <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>

@@ -44,7 +44,7 @@
                     <?php
                     wp_nav_menu(
                         array(
-                            'container_id'    => 'mobile-menu',
+                            'container_id'    => 'primary',
                             'container_class' => 'text-xl',
                             'menu_class'      => ' ',
                             'theme_location'  => 'mobile',

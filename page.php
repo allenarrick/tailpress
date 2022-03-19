@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div class="container mx-auto my-8">
+<div>
 <?php if ( is_user_logged_in() ) : ?>
-				<h2 class="px-2 py-1 bg-gray-300 text-sm rounded-sm inline">page.php</h2>
+				<h2 class="inline px-2 py-1 text-sm bg-gray-300 rounded-sm">page.php</h2>
 			<?php endif; ?>
 	<?php if ( have_posts() ) : ?>
 		<?php

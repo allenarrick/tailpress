@@ -1,10 +1,10 @@
 <!-- Header Logo -->
 <div>
     <?php if ( has_custom_logo() ) { ?>
-        <?php the_custom_logo(); ?>
+        <img src="<?php echo get_custom_logo_url();?>" width="200">
     <?php } else { ?>
         <div class="text-lg uppercase">
-            <a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
+            <a href="<?php echo get_bloginfo( 'url' ); ?>" class="text-lg font-extrabold uppercase">
                 <?php echo get_bloginfo( 'name' ); ?>
             </a>
         </div>

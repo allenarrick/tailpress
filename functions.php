@@ -20,6 +20,10 @@ function tailpress_setup() {
 		array(
 			'primary' => __( 'Primary Menu', 'tailpress' ),
 			'mobile' => __( 'Mobile Menu', 'tailpress' ),
+			'footer-1' => __( 'Footer Nav 1', 'tailpress' ),
+			'footer-2' => __( 'Footer Nav 2', 'tailpress' ),
+			'footer-3' => __( 'Footer Nav 3', 'tailpress' ),
+			'footer-4' => __( 'Footer Nav 4', 'tailpress' ),
 		)
 	);
 
@@ -56,7 +60,7 @@ function tailpress_enqueue_scripts() {
 	$theme = wp_get_theme();
 
 	wp_enqueue_style( 'tailpress', tailpress_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
-	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_script( 'alpine', tailpress_asset( 'js/app.js' ), array(), $theme->get( 'Version' ), true );
 }
 
 add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
@@ -121,3 +125,23 @@ function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 }
 
 add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
+
+function get_custom_logo_url()
+{
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    return $image[0];
+}
+
+// Define path and URL to the LZB plugin.
+define( 'MY_LZB_PATH', get_stylesheet_directory() . '/inc/lzb/' );
+define( 'MY_LZB_URL', get_stylesheet_directory_uri() . '/inc/lzb/' );
+
+// Include the LZB plugin.
+require_once MY_LZB_PATH . 'lazy-blocks.php';
+
+// Customize the url setting to fix incorrect asset URLs.
+add_filter( 'lzb/plugin_url', 'my_lzb_url' );
+function my_lzb_url( $url ) {
+    return MY_LZB_URL;
+}

@@ -6,6 +6,7 @@
  */
 
 add_action('customize_register', 'theme_header_customizer');
+add_action('customize_register', 'theme_footer_customizer');
 add_action('customize_register', 'theme_site_identity_customizer');
 
 /*
@@ -98,6 +99,63 @@ function theme_header_customizer($wp_customize){
 		'label'   => 'Spanish Page',
 		'section' => 'header_settings_section',
 		'type'    => 'dropdown-pages',
+	));
+}
+
+/*
+* Footer Section
+*/
+function theme_footer_customizer($wp_customize){
+	//adding section in wordpress customizer   
+   $wp_customize->add_section('footer_settings_section', array('title' => 'Footer Settings'));
+   //adding setting for Header area
+    $wp_customize->add_setting('description', array(
+        'default'        => '',
+    ));
+	$wp_customize->add_setting('facebook_url', array(
+	'default'        => '',
+	));
+	$wp_customize->add_setting('instagram_url', array(
+	'default'        => '',
+	));
+	$wp_customize->add_setting('twitter_url', array(
+		'default'        => '',
+	));
+	$wp_customize->add_setting('github_url', array(
+		'default'        => '',
+	));
+	$wp_customize->add_setting('dribbble_url', array(
+		'default'        => '',
+	));
+    $wp_customize->add_control('description', array(
+		'label'   => 'Description',
+		'section' => 'footer_settings_section',
+		'type'    => 'textarea',
+	));
+	$wp_customize->add_control('facebook_url', array(
+		'label'   => 'Facebook URL',
+		'section' => 'footer_settings_section',
+		'type'    => 'text',
+	));
+	$wp_customize->add_control('instagram_url', array(
+		'label'   => 'Instagram URL',
+		'section' => 'footer_settings_section',
+		'type'    => 'text',
+	));
+	$wp_customize->add_control('github_url', array(
+		'label'   => 'Github URL',
+		'section' => 'footer_settings_section',
+		'type'    => 'text',
+	));
+	$wp_customize->add_control('twitter_url', array(
+		'label'   => 'Twitter URL',
+		'section' => 'footer_settings_section',
+		'type'    => 'text',
+	));
+	$wp_customize->add_control('dribbble_url', array(
+		'label'   => 'Dribbble URL',
+		'section' => 'footer_settings_section',
+		'type'    => 'text',
 	));
 }
 

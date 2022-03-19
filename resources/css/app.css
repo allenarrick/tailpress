@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import "custom.css";
+@import "fontawesome.min.css";
 
 @layer components {
   [x-cloak] {
